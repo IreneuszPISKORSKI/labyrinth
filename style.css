@@ -1,0 +1,41 @@
+#board{
+    margin: 15px;
+    width: auto;
+}
+
+.line{
+    display: flex;
+    justify-content: center;
+}
+
+.element{
+    box-sizing: border-box;
+    text-align: center;
+    background-color: green;
+    height: 50px;
+    width: 50px;
+}
+
+#entrance{
+    background-color: yellowgreen;
+}
+
+#exit{
+    background-color: cornflowerblue;
+}
+
+.borderTop{
+    border-top: 1px black solid;
+}
+
+.borderRight{
+    border-right: 1px black solid;
+}
+
+.borderBottom{
+    border-bottom: 1px black solid;
+}
+
+.borderLeft{
+    border-left: 1px black solid;
+}
