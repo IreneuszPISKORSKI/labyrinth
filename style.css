@@ -1,3 +1,7 @@
+body{
+    background-color: rgb(6, 5, 32);
+}
+
 #board{
     margin: 15px;
     width: auto;
@@ -21,7 +25,7 @@
 }
 
 #entrance{
-    background-color: yellowgreen;
+    background-color: rgb(79, 106, 226);
 }
 
 #exit{
@@ -42,4 +46,12 @@
 
 .borderLeft{
     border-left: 1px black solid;
+}
+
+.roadToWin{
+    background-color: orange !important;
+}
+
+.roadWin{
+    background-color: rgb(31, 207, 31) !important;
 }
