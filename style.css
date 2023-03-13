@@ -11,9 +11,13 @@
 .element{
     box-sizing: border-box;
     text-align: center;
-    background-color: green;
+    background-color: rgb(64, 179, 214);
     height: 50px;
     width: 50px;
+}
+
+.labyrinth{
+    margin-top: 20px;
 }
 
 #entrance{
