@@ -27,8 +27,8 @@ function creationLabyrinth(){
             for(let i=0; i<size ;i++){
                 let test = "";
                 for(let j=0;j<size;j++){
-                    let posX = labAct[counter].posX;
-                    let posY = labAct[counter].posY;
+                    // let posX = labAct[counter].posX;
+                    // let posY = labAct[counter].posY;
                     let classBorder = "element";
             
                     if (labAct[counter].walls[0]){

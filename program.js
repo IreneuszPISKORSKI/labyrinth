@@ -34,22 +34,24 @@ function bfsFindExit(){
 
 function dsf_iterative(G, e){
     let stack = [];
-    let exitRoad = [];
+    // let exitRoad = [];
     stack.push(e);
-
-    while(stack.length>0){
+    let onExit = false;
+    while(stack.length>0 && !onExit){
         let v = stack.pop();
         board.children[dsfLabNb].children[v.posY].children[v.posX].classList.add("roadToWin");
+
         if (!v.visited){
             v.pos = v.posX + v.posY*sizeForTest;
             v.visited=true;
             if (v.exit){
                 while(v.parent){
-                    exitRoad.push(v);
+                    // exitRoad.push(v);
                     board.children[dsfLabNb].children[v.posY].children[v.posX].classList.add("roadWin");
                     v = v.parent;
                 }
-                return ;
+                onExit = true;
+                // return ;
             }
             if (!v.walls[0] && !G[v.pos-sizeForTest].visited && G[v.pos-sizeForTest]){
                 G[v.pos-sizeForTest].parent = v;
@@ -75,9 +77,10 @@ function bfs_iterative(G, e){
     let stack = [];
     let exitRoad = [];
     stack.push(e);
-    let inQueue = 0;
+    // let inQueue = 0;
     while(stack.length>0){
-        let v = stack[inQueue];
+        // let v = stack[inQueue];
+        let v = stack.shift();
         board.children[dsfLabNb].children[v.posY].children[v.posX].classList.add("roadToWin");
 
         if (!v.visited){
@@ -108,7 +111,7 @@ function bfs_iterative(G, e){
                 stack.push(G[v.pos-1]);
             }
         }
-        inQueue++;
+        // inQueue++;
     }
 }
 
