@@ -1,21 +1,23 @@
 let exampleVersion = 1;
 let sizeForTest = 6;
 let variant = "ex-" + exampleVersion;
-let dsfLabAct = labyrinth[sizeForTest][variant];
-let dsfLabNb = (sizeForTest-3)*3 + exampleVersion;
+let dfsLabAct = labyrinth[sizeForTest][variant];
+let dfsLabNb = (sizeForTest-3)*3 + exampleVersion;
 
-function dsfFindExit(){
+
+
+function dfsFindExit(){
     for (let a=3; a<=25; a++){
         for (let b=0; b<3; b++){
             exampleVersion = b;
             sizeForTest = a;
             variant = "ex-" + exampleVersion;
-            dsfLabAct = labyrinth[sizeForTest][variant];
-            dsfLabNb = (sizeForTest-3)*3 + exampleVersion;
-            dsf_iterative(dsfLabAct,dsfLabAct[0]);
+            dfsLabAct = labyrinth[sizeForTest][variant];
+            dfsLabNb = (sizeForTest-3)*3 + exampleVersion;
+            dfs_iterative(dfsLabAct,dfsLabAct[0]);
         }
     }
-    return "DSF has found a way out";
+    return "DFS has found a way out";
 }
 
 function bfsFindExit(){
@@ -24,30 +26,29 @@ function bfsFindExit(){
             exampleVersion = b;
             sizeForTest = a;
             variant = "ex-" + exampleVersion;
-            dsfLabAct = labyrinth[sizeForTest][variant];
-            dsfLabNb = (sizeForTest-3)*3 + exampleVersion;
-            bfs_iterative(dsfLabAct,dsfLabAct[0]);
+            dfsLabAct = labyrinth[sizeForTest][variant];
+            dfsLabNb = (sizeForTest-3)*3 + exampleVersion;
+            bfs_iterative(dfsLabAct,dfsLabAct[0]);
         }
     }
     return "BFS has found a way out";
 }
 
-function dsf_iterative(G, e){
+function dfs_iterative(G, e){
     let stack = [];
     // let exitRoad = [];
     stack.push(e);
     let onExit = false;
     while(stack.length>0 && !onExit){
         let v = stack.pop();
-        board.children[dsfLabNb].children[v.posY].children[v.posX].classList.add("roadToWin");
-
+        board.children[dfsLabNb].children[v.posY].children[v.posX].classList.add("roadToWin");
         if (!v.visited){
             v.pos = v.posX + v.posY*sizeForTest;
             v.visited=true;
             if (v.exit){
                 while(v.parent){
                     // exitRoad.push(v);
-                    board.children[dsfLabNb].children[v.posY].children[v.posX].classList.add("roadWin");
+                    board.children[dfsLabNb].children[v.posY].children[v.posX].classList.add("roadWin");
                     v = v.parent;
                 }
                 onExit = true;
@@ -81,7 +82,7 @@ function bfs_iterative(G, e){
     while(stack.length>0){
         // let v = stack[inQueue];
         let v = stack.shift();
-        board.children[dsfLabNb].children[v.posY].children[v.posX].classList.add("roadToWin");
+        board.children[dfsLabNb].children[v.posY].children[v.posX].classList.add("roadToWin");
 
         if (!v.visited){
             v.pos = v.posX + v.posY*sizeForTest;
@@ -89,7 +90,7 @@ function bfs_iterative(G, e){
             if (v.exit){
                 while(v.parent){
                     exitRoad.push(v);
-                    board.children[dsfLabNb].children[v.posY].children[v.posX].classList.add("roadWin");
+                    board.children[dfsLabNb].children[v.posY].children[v.posX].classList.add("roadWin");
                     v = v.parent;
                 }
                 return ;
